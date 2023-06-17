@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="image/web-icon.png" sizes="16x16">
+	<title>逆社会时钟</title>
+	<link rel="stylesheet" href="./css/style.css" rel="stylesheet" />
+	<!-- 首屏钟表和跑步人 -->
+	<link rel="stylesheet" href="./css/style-clock.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./css/style-run.css" rel="stylesheet" />
+	<link type="text/css" href="./css/style-wenzi.css" rel="stylesheet" />
+	<link type="text/css" href="./css/roll.css" rel="stylesheet" />
+	<!-- 碎纸机 -->
+	<link type="text/css" href="./css/style-sui.css" rel="stylesheet" />
+	<!-- <script src="js/script-sui.js"></script> -->
+	<!-- 卡片倾斜 -->
+	<!-- <link rel="stylesheet" href="./movecards-style.css" /> -->
+	<!-- <link type="text/css" href="./css/style-qipao.css" rel="stylesheet" /> -->
+	<!-- 中美图片对比 -->
+	<link type="text/css" href="./css/image-compare-viewer.min.css" rel="stylesheet" />
+	<link type="text/css" href="./css/animate.css" rel="stylesheet" />
+	<!-- 对话框 -->
+
+	<!-- 图片上下移动效果 -->
+	<style scoped>
+		.leaf1-img img,
+		.leaf2-img img,
+		.leaf3-img img {
+			animation: jumpBoxHandler 1.8s infinite;
+			/* 1.8s 事件完成时间周期 infinite无限循环 */
+		}
+
+		@keyframes jumpBoxHandler {
+
+			/* css事件 */
+			0% {
+				transform: translate(0px, 0px);
+			}
+
+			50% {
+				transform: translate(0px, 30px);
+				/* 可配置跳动方向 */
+			}
+
+			100% {
+				transform: translate(0px, 0px);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="preloader"></div>
+	<!-- 底部背景 -->
+	<div class="page-back"></div>
+	<!-- 返回顶部 -->
+	<div class="go-top" onclick="returnTop()"><img src="image/回到首页.png" alt="" /></div>
+	<!-- 导航 -->
+	<div class="top-nav" id="nav">
+		<div class="nav-tip"><img src="image/导航装饰.png"><span class="tip-text">页面导航</span></div>
+		<a class="anchor" href="#first-content">开篇</a>
+		<span class="separate">|</span>
+		<a class="anchor" href="#anchor1">社会之钟</a>
+		<span class="separate">|</span>
+		<a class="anchor" href="#anchor2">选择之钟</a>
+		<span class="separate">|</span>
+		<a class="anchor" href="#anchor3">反方向的钟</a>
+		<span class="separate">|</span>
+		<a class="anchor" href="#last-content">结语</a>
+	</div>
+	<!-- 首屏 -->
+	<div class="top-part" id="top-part">
+		<!-- 条带钟表 -->
+		<div class="head-clock" id="head-clock">
+			<div class='seconds'><span>100 </span><span>101 </span><span>102 </span><span>103 </span><span>104
+				</span><span>105 </span><span>106 </span><span>107 </span><span>108 </span><span>109 </span><span>110
+				</span><span>111 </span><span>112 </span><span>113 </span><span>114 </span><span>115 </span><span>116
+				</span><span>117 </span><span>118 </span><span>119 </span><span>120 </span><span>121 </span><span>122
+				</span><span>123 </span><span>124 </span><span>125 </span><span>126 </span><span>127 </span><span>128
+				</span><span>129 </span><span>130 </span><span>131 </span><span>132 </span><span>133 </span><span>134
+				</span><span>135 </span><span>136 </span><span>137 </span><span>138 </span><span>139 </span><span>140
+				</span><span>141 </span><span>142 </span><span>143 </span><span>144 </span><span>145 </span><span>146
+				</span><span>147 </span><span>148 </span><span>149 </span><span>150 </span><span>151 </span><span>152
+				</span><span>153 </span><span>154 </span><span>155 </span><span>156 </span><span>157 </span><span>158
+				</span><span>159 </span></div>
+			<div class='minute'><span>100 </span><span>101 </span><span>102 </span><span>103 </span><span>104
+				</span><span>105 </span><span>106 </span><span>107 </span><span>108 </span><span>109 </span><span>110
+				</span><span>111 </span><span>112 </span><span>113 </span><span>114 </span><span>115 </span><span>116
+				</span><span>117 </span><span>118 </span><span>119 </span><span>120 </span><span>121 </span><span>122
+				</span><span>123 </span><span>124 </span><span>125 </span><span>126 </span><span>127 </span><span>128
+				</span><span>129 </span><span>130 </span><span>131 </span><span>132 </span><span>133 </span><span>134
+				</span><span>135 </span><span>136 </span><span>137 </span><span>138 </span><span>139 </span><span>140
+				</span><span>141 </span><span>142 </span><span>143 </span><span>144 </span><span>145 </span><span>146
+				</span><span>147 </span><span>148 </span><span>149 </span><span>150 </span><span>151 </span><span>152
+				</span><span>153 </span><span>154 </span><span>155 </span><span>156 </span><span>157 </span><span>158
+				</span><span>159 </span></div>
+			<div class='hour'><span>0 </span><span>1 </span><span>2 </span><span>3 </span><span>4 </span><span>5
+				</span><span>6 </span><span>7 </span><span>8 </span><span>9 </span><span>10 </span><span>11
+				</span><span>12
+				</span><span>13 </span><span>14 </span><span>15 </span><span>16 </span><span>17 </span><span>18
+				</span><span>19 </span><span>20 </span><span>21 </span><span>22 </span><span>23 </span></div>
+			<div class='hr'></div>
+			<div class='min'></div>
+			<div class='secs'></div>
+		</div>
+		<!-- 图片元素 -->
+		<!-- 左上时钟+标题+装饰 -->
+		<div class="pic-clock">
+			<img src="image/时钟.png" alt="image" style="width:20%; float: left;">
+		</div>
+		<div class="title">
+			<img src="image/标题.png" alt="image" style="width:50%; float: left;">
+		</div>
+		<div class="pic-yep">
+			<img src="image/yep.png" alt="image" style="width:25%; float: right;">
+		</div>
+		<!-- 跑动小人 -->
+		<div class="running">
+			<div class="outer">
+				<div class="body">
+					<div class="arm behind"></div>
+					<div class="arm front"></div>
+					<div class="leg behind"></div>
+					<div class="leg front"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 开篇 first-content -->
+	<div class="first-content" id="first-content">
+		<div class="navblock2"></div>
+		<!-- first-page -->
+		<div class="first-page" id="first-page">
+			<div class="a3d"></div>
+			<div class="test" style="visibility: visible; animation-name: fadeInUp;" data-josh-anim-name="fadeInUp"
+				data-josh-anim-delay="2.5s">
+				<div class="shnsz"><img src="image/社会逆时钟.png" alt="" /></div>
+			</div>
+		</div>
+		<div class="navblock2"></div>
+		<!-- second-page -->
+		<div class="second-page" id="second-page">
+			<div class="words">
+				<div class="clock-img"><img src="image/clock.png" /></div>
+				<div class="test" style="visibility: visible; animation-name: fadeInUp;" data-josh-anim-name="fadeInUp"
+					data-josh-anim-delay="2.5s">
+					<div class="plain-text" style="visibility: visible; animation-name: fadeInUp;">
+						<p>要明白什么是&nbsp;<span class="big-text">&nbsp;“逆社会时钟”</span>， 可以先从&nbsp;<span
+								class="big-text">“社会时钟”</span>&nbsp;的概念开始。这一概念由&nbsp;<span class="big-text">心理学家Bernice
+								Neugarten</span>等提出，他们将“社会时钟”总结为：一种由社会中&nbsp;<span
+								class="big-text">人们的主要生活事件</span>&nbsp;组成的<span
+								class="big-text">规定性时间表</span>，如什么时候应该上学，什么时候就业、结婚、生子等……这样的时间表约束着社会中的个体。</p>
+						<p class="big">许多人将其总结为&nbsp;<span class="big-text"
+								style="text-decoration: underline;">“什么时间该做什么事”</span>。</p>
+					</div>
+				</div>
+
+				<div class="man-img"><img src="image/man.png" /></div>
+			</div>
+		</div>
+		<!-- third-page -->
+		<div class="third-page" id="third-page">
+			<div class="words-third">
+				<div class="plain-text2">
+					<p>不同历史时期、不同文化、不同国家的社会时钟都会有其不同之处。</p>
+					<p>古时候，孔子曾言：&nbsp;<span class="big-text">“三十而立，四十不惑，五十知天命，六十而耳顺”</span>&nbsp;；</p>
+					<p>又如联邦调查局数据,截至2021年,德国女性的生育第一胎的平均年龄超过&nbsp;<span
+							class="big-text">30岁</span>&nbsp;,而我国女性生育头胎的平均年龄截至2020年则为<span
+							class="big-text">27.5岁</span>。</P>
+					<p>还有一些社会时钟源于一些硬性规定。例如我国国家公务员的报考条件中要求报考者一般要在18周岁以上、35周岁以下,那么一个人能够报考公务员的人生“时钟”也就&nbsp;<span
+							class="big-text">牢牢锁定在18~35周岁</span>&nbsp;。</P>
+
+				</div>
+				<div class="chain-img"><img src="image/chain.png" /></div>
+				<div class="shining-num">
+					<div class="row col-row justify-content-between">
+						<div class="col-3">
+							<div class="counter-item counter-text-wrap wow fadeInUp delay-0-2s"><i
+									class="fal fa-check-circle"></i><span class="count-text">27.5</span>
+								<div class="counter-title" style="font-size: 25px;color: #BDA25F;">我国女性该生孩子了</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="counter-item counter-text-wrap wow fadeInUp delay-0-3s"><i
+									class="fal fa-check-circle"></i><span class="count-text k" data-speed="3000"
+									data-stop="3">30</span>
+								<div class="counter-title" style="font-size: 25px;color: #BDA25F;">德国女性该生孩子了</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="counter-item counter-text-wrap wow fadeInUp delay-0-4s"><i
+									class="fal fa-check-circle"></i><span class="count-text" data-speed="3000"
+									data-stop="48">18-35</span>
+								<div class="counter-title" style="font-size: 25px;color: #BDA25F;">&nbsp; &nbsp; &nbsp;
+									&nbsp; 要考公务员不能耽误</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- fourth-page -->
+		<div class="fourth-page" id="fourth-page">
+			<div class="words-fourth">
+				<div class="plain-text2" style="margin-top: 10px;">
+					<p><span
+							class="big-text">&nbsp;“社会时钟”就是如此——它有它的好处：</span>&nbsp;人是社会性的动物，确定了自己与社会中的大多数人“同频共振”，能使个体更加笃定地走在既定的人生道路上；当然，“顺时钟”的人生能够获取的相应资源也会相对较多。
+					</p>
+				</div>
+				<div class="rolltext">
+					<img src="image/rolltext.png" alt="Circle Text" style="width: 10%;">
+				</div>
+				<div class="plain-text3" style="padding-top: 50px;margin-top: 115px;">
+					<p style="line-height: 40px;">然而，我们都有可能<span
+							class="big-text">主动或被动地“偏离”时钟，画出与大多数人不同的人生轨迹</span>&nbsp;；更何况在各种各样的人生阶段中，&nbsp;<span
+							class="big-text">社会时钟都可能变成一种枷锁</span>&nbsp;，束住我们的手脚。一味地遵守社会时钟，只会渐渐地迷失自我。</p>
+				</div>
+			</div>
+
+		</div>
+		<!-- fifth-page -->
+		<div class="fifth-page" id="fifth-page">
+			<div class="words-fifth">
+				<div class="db">
+					<div class="center bounce-in no-display animated bounceIn appear">
+						<div class="icon"><img src="./image/icon.png" style="width: 40%;"></div>
+						<h1 style="margin-top: 10px; color:#F2E8CD;  text-align: center;line-height: 20px;"><span
+								class="counter">82482</span></h1>
+						<div
+							style="margin-top: 10px; color:#ffffff; text-align: center;font-size: 25px;line-height: 30px;">
+							豆瓣小组成员</div>
+					</div>
+					<img src="image/text-title.png" alt="" style="margin-top: 30px;width: 70%;">
+				</div>
+
+				<div class="rolling-key-words">
+					<div class="plain-text5" style="padding-bottom: 0;">
+						<p style="margin-bottom: 0; line-height:40px;font-size: 20px;">截至<span
+								class="big-text">2023年5月20日</span>&nbsp;,豆瓣“逆社会时钟”小组的成员已经多达<span
+								class="big-text">82482</span>&nbsp;位。我们爬取了小组中的<span
+								class="big-text">&nbsp;2295篇</span>&nbsp;帖子,剔除重复、无效的数据&nbsp;<span
+								class="big-text">362&nbsp;</span>&nbsp;条,最终得到<span
+								class="big-text">1838</span>&nbsp;篇关于小组成员分享各自“逆时钟”经历与感悟的帖子。</p>
+					</div>
+					<div style="height: 20px;"></div>
+					<div id="div1" class="div1" style="line-height: 29px">
+						<div class="man2-img"><img src="image/man2.png" style="width: 25%;" /></div>
+						<a class="a1" onclick="return false" href="#" target="_blank"
+							id="keyword-1">“40岁的我,开始好好学画画了”</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-2">32岁辞职归田园</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-3">“我打算开始Gap year了!”
+						</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-4">想要重读本科、想要再读一个硕士</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-5">“大龄考研后，我又从体制辞职”</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-6">30岁才学会骑自行车</a>
+						<a class="a1" onclick="return false" href="#" target="_blank"
+							id="keyword-7">“认识的60+的老人家去读考古学”</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-8">记录休学一年的时间</a>
+						<a class="a1" onclick="return false" href="#" target="_blank"
+							id="keyword-9">“33岁才想清楚自己擅长和喜欢什么”</a>
+						<a class="a1" onclick="return false" href="#" target="_blank" id="keyword-10">法学大四已保研想重新高考读医</a>
+					</div>
+				</div>
+				<div class="plain-text-keyword"
+					style="font-size: 15px; margin: -66px auto -16px; width: 40%; text-align: center">
+					鼠标放置在关键词上，查看网友留言
+				</div>
+
+			</div>
+		</div>
+		<!-- last-page -->
+		<div class="last-page" id="last-page">
+			<div class="plain-text3" style="padding-bottom: 50px;"></div>
+			<div class="plain-text4" style="font-size: 25px;padding-top: 0px;padding-bottom: 0px;">
+				<!-- <div style="margin-top: 30px;"></div> -->
+				<p style="line-height: 40px;text-align: center;">让我们用小组简介中的<span class="big-text">一首小诗</span>开启这趟</p>
+				
+				<p class="bl" style="line-height: 30px;text-align: center;">
+					<!-- <div class="clock-img"><img  src="image/诗歌icon.png" /></div> -->
+					<span class="big-text">“逆时钟”之旅</span>
+				</p>
+				
+			</div>
+			<div class="second1-tip" style="font-size: 15px;padding-top: 20px;">放置鼠标停止诗歌滚动</div>
+			<div class="words-poem">
+				<!-- 滚动诗句 -->
+				<div class="shiju">
+					<div class="zyyw_msg" attr-loop="true">
+						<ul class="zyyw_msg_slide">
+							<li>
+								<span>
+									&nbsp;
+								</span>
+							</li>
+							<li>
+								<span>
+									纽约时间比加州时间早三个小时，但加州时间并没有变慢。
+								</span>
+							</li>
+							<li>
+								<span>
+									有人22岁就毕业了，但等了五年才找到稳定的工作。
+								</span>
+							</li>
+							<li>
+								<span>
+									有人25岁就当上CEO，却在50岁去世。
+								</span>
+							</li>
+							<li>
+								<span>
+									也有人迟到50岁才当上CEO，然后活到90岁。
+								</span>
+							</li>
+							<li>
+								<span>
+									有人单身，同时也有人结婚。
+								</span>
+							</li>
+							<li>
+								<span>
+									奥巴马55岁就退休，川普70岁才开始当总统。
+								</span>
+							</li>
+							<li>
+								<span>
+									<span style="color: #10755c;">世上每个人本来就有自己的发展时区。</span>
+								</span>
+							</li>
+							<li>
+								<span>
+									身边有些人看似走在你前面，也有些人看似走在你后面，
+								</span>
+							</li>
+							<li>
+								<span>
+									但其实每个人在自己的时区都有自己的步程。
+								</span>
+							</li>
+							<li>
+								<span>
+									不用嫉妒或羡慕，他们都在自己的时区里，你也是！
+								</span>
+							</li>
+							<li>
+								<span>
+									<span style="color: #10755c;">生命就是等待正确的行动时机。</span>
+								</span>
+							</li>
+							<li>
+								<span>
+									所以，放轻松。
+								</span>
+							</li>
+							<li>
+								<span>
+									你没有落后。
+								</span>
+							</li>
+							<li>
+								<span>
+									你没有领先。
+								</span>
+							</li>
+							<li>
+								<span>
+									<span style="color: #10755c;">在命运为你安排的属于自己的时区里，一切都准时。</span>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- 社会之钟 anchor1 -->
+	<div class="anchor1" id="anchor1">
+		<div class="navblock" style="height: 100px;"></div>
+		<div class="db" style="padding-top: 20px;padding-bottom: 20px;"><img src="image/社会之钟.png" alt="" /></div>
+		<!-- first1-page -->
+		<div class="first1-page">
+			<div class="plain-text3" style="padding-bottom: 10px;">
+				<p>有网友曾笑言：“以后的大学可以只分为几个专业：考研，考公，留学，就业……专业知识也不用学了，一入学就可以开始学写申论、练习面试……”</p>
+			</div>
+			<div><img src="image/road.gif" alt="" style="width: 26%;margin-left: 37%;"></div>
+			<div class="plain-text3" style="padding-bottom: 0;padding-top:10px;">
+				<p>虽是玩笑话，却说出了如今大多年轻人的<span
+						class="big-text">&nbsp;现状与困扰</span>&nbsp;。就拿大学生们来说：大学之前，几乎只进行了基础科目如语数英的学习，大学四年更是要花时间、精力重新适应崭新的学校生活，学习专业课、学会自立、参加社团……可短短四年过后或更早一些，社会上的压力就“如约而至”：
+				</p>
+			</div>
+			<div><img src="image/list.gif" alt="" style="width: 40%;margin-left: 30%;"></div>
+			<div class="plain-text3" style="padding-bottom: 10px;padding-top:0;">
+				<p>结果就是&nbsp;<span class="big-text">&nbsp;“人生的方向”不一定明确，焦虑与恐惧倒汹涌而来。&nbsp;</span></p>
+				<p>而就算挨过了青少年时期，来自“社会时钟”的压迫感也<span
+						class="big-text">无处不在</span>&nbsp;。人至中年，理应将周围的一切安排妥帖，想要转行、辞职抑或花时间精力培养一门新技能、新爱好都会遭到质疑，幸福的婚姻和一儿半女也是不可少的；而若是不小心失业、下岗了，或是婚姻出现了裂痕，更是仿佛灭顶之灾。到老了，也需要按部就班地退休、带孙子，甚至可能要到古稀之年才能有更多自己的时间，做一直以来因为要遵从社会时钟而没有机会做的事，但脑力、体力也很难跟上了。
+				</p>
+			</div>
+			<div style="margin-top: 20px;"></div>
+			<div class="plain-text4">
+				<p>在综艺《非正式会谈》（第五季第四期）中，</p>
+				<p>来自中美两国的嘉宾就晒出了各自国家的”社会时钟”。</p>
+			</div>
+
+			<!-- 中美对比图 -->
+			<div class="second1-tip" style="margin-bottom: 10px;margin-top: 10px;">移动鼠标，对比中美两国社会时钟</div>
+			<div class="container" style="width:40%;margin-left: 30%;">
+				<!-- <h1>Image Compare Viewer Example</h1>
+				<h2>Horizontal</h2> -->
+				<div id="image-compare1">
+					<img src="image/中国社会时钟.gif" alt="" />
+					<img src="image/美国社会时钟.gif" alt="" />
+				</div>
+				<!-- <h2>Vertical</h2> -->
+				<div id="image-compare2">
+					<img src="imgs/3.jpg" alt="" />
+					<img src="imgs/4.jpg" alt="" />
+				</div>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;">
+				<p><span class="big-text">“大流”如此</span>，无论是已经偏离了社会时钟抑或还在苦苦地追赶，所遇到的困境都显而易见了。</p>
+				<p>在知乎，<span class="big-text">“催婚”</span>话题下已有<span class="big-text">31.1万</span>讨论，浏览量达1.8亿
+					，“催生”的浏览量也达58.3万
+					（截至2023年5月21日）。一份36氪X后浪研究所于2022年底发布的《年轻人年龄焦虑报告》统计了2136名受访者的“年龄焦虑”现状,从80后到00后,他们感到仿佛<span
+						class="big-text">“每个决定与选择,都要在既定的年龄段之前成功完成”。</span></p>
+			</div>
+			<div class="words" style="padding-bottom: 0px;">
+				<div class="black-img"><img src="image/black.gif" alt="" /></div>
+				<!-- 年轻人从什么时候开始年龄焦虑 图表 -->
+				<div class="flourish-embed flourish-chart" data-src="visualisation/13917513"></div>
+				<!-- 产生年龄敏感的扎心时刻 图表 -->
+				<div class="flourish-embed flourish-chart" data-src="visualisation/13931634"></div>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 50px;">
+				<p>“社会时钟”的规训比想象中来得还要早，有<span class="big-text">38.2%</span>的人表示年龄焦虑在<span
+						class="big-text">25岁</span>之后就开始了。</p>
+				<p>在我们所爬取的豆瓣帖子中，“焦虑”“提问”的占比也高达&nbsp<span class="big-text">&nbsp;22.4%&nbsp;</span>。至于焦虑的内容——&nbsp;<span
+						class="big-text">&nbsp;催婚、买房、存款、健康、工作中</span>&nbsp;被人替代的焦虑……<span
+						class="big-text">&nbsp;无论做什么事，都好像“过了这个村，就没有这个店了”。</span></p>
+			</div>
+		</div>
+		<!-- second1-page -->
+		<div class="second1-page">
+			<div class="second1-tip">点击查看各行业从业者的年龄焦虑</div>
+			<!-- 图片弹出 -->
+			<div class="mybutton">
+				<div class="button-cell button-1">
+					<img src="image/button-1.png" id="oImg" style='display:none' width="300px" hight="200px">
+					<input class="buttonstyle" type="button" value='国企员工' onclick="reP()">
+				</div>
+				<div class="button-cell button-2">
+					<img src="image/button-2.png" id="oImg2" style='display:none' width="300px" hight="200px">
+					<input class="buttonstyle" type="button" value='制造业从业者' onclick="reP2()">
+				</div>
+				<div class="button-cell button-3">
+					<img src="image/button-3.png" id="oImg3" style='display:none' width="300px" hight="200px">
+					<input class="buttonstyle" type="button" value='互联网从业者' onclick="reP3()">
+				</div>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 50px;padding-top: 100px;">
+				<p>当过生日都成为一种负担，我们好像是时候将“社会时钟”放一放，拒绝<span class="big-text">&nbsp;“打卡式人生”&nbsp;</span>了。</p>
+			</div>
+			<!-- 你喜欢过生日吗 图表 -->
+			<div class="flourish-embed flourish-chart" data-src="visualisation/13933550"></div>
+			<!-- 你介意别人问你的年龄吗 图表 -->
+			<div class="flourish-embed flourish-chart" data-src="visualisation/13933637"></div>
+			<div style="margin-top: 20px;"></div>
+			<div class="run-people">
+				<img class="c1" src="image/run-people.png" />
+				<img class="c2" src="image/run-people2.png" />
+			</div>
+			<div style="margin-top: 300px;"></div>
+			<div class="plain-text3" style="padding-bottom: 50px;padding-top: 50px;margin-top: -5%;">
+				<p><span class="big-text">&nbsp;“逆社会时钟”&nbsp;</span>应运而生。有人在<span
+						class="big-text">24岁</span>重新考上了大学，学习自己更喜欢的专业；有人<span
+						class="big-text">7岁</span>起就能在暑假独自坐飞机，并在<span
+						class="big-text">27岁</span>开始学芭蕾舞，现在已经到达了足尖水平；有人<span class="big-text">27岁</span>放弃考研去丽江做义工
+					；有人面对催婚勇敢地说出自己的心声。</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo2.png"></div>
+						<div class="description">
+							<h3>@Hello Hippo</h3>
+							<p>父母长期催婚，一直是家庭主要矛盾。我想明白了自己的人生需要自己负责。我对爸妈说，如果结婚生孩子不幸福，你们没有办法为我负责，你也没办法帮我担起带孩子的全部责任，所以不要催了。……我对自己的选择感到很舒服。
+								<br>
+							</p>
+						</div>
+					</li>
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo1.png"></div>
+						<div class="description" style="text-align: left;">
+							<h3>@空港</h3>
+							<p>老师在职规课上面灌输焦虑，我在计划书封面上面写我的生命不是单行道。<br>
+								我不要在狭窄拥挤的单行道上面拿命去奔跑，<br>
+								我要活成自己的海洋。
+								我讨厌滴滴作响的社会时钟，
+								我要活在自己的时区里。
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 20px;padding-top: 30px;margin-top: -3%;">
+				<p>在豆瓣小组中，有这么一篇帖子吸引了我们的注意：<span class="big-text">标题为“我妈说，什么样的年龄就该做什么事~”
+					</span>，本以为又会是关于“社会时钟”的老生常谈，点进去却是令人振奋的内容:</p>
+
+			</div>
+			<div style="color: rgb(169, 144, 126);text-align: center;padding-bottom: 15px;">对话根据豆瓣用户@ lantana发帖内容改写</div>
+			<!-- 对话框 -->
+			<div class="chat">
+				<p class="send">妈，我裸辞了，想去申请phd。</p>
+				<p class="send">但我已经三十多了，我有点犹豫</p>
+				<p class="receive">支持你！女儿</p>
+				<p class="receive">什么样的年龄就该做什么事！现在30多不正是去追求梦想的好年龄吗？难道要等到退休以后后悔吗？</p>
+				<p class="send">好!爱你妈妈！❤我要向你学习！当时您四十多岁博士毕业，是我们全家的骄傲呢！</p>
+				<p class="send">我记得我小时候画画不错，最近还想在业余时间重新学学画画。</p>
+				<p class="receive">还是那句话！什么样的年龄就该做什么事！</p>
+				<p class="receive">退休了以后大把的时间可以发展兴趣爱好，XXX奶奶还在学钢琴呢，不去学习等着浪费人生吗？</p>
+				<p class="send">妈妈你说的对！外婆还在学英语呢！</p>
+			</div>
+			<div class="navblock" style="height: 50px;margin-top: -2%;"></div>
+
+		</div>
+	</div>
+
+	<!-- 选择之钟 anchor2 -->
+	<div class="anchor2" id="anchor2">
+		<div class="navblock" style="height: 100px;margin-top: -2%;"></div>
+		<div class="db" style="padding-top: 20px;padding-bottom: 20px;"><img src="image/选择之钟.png" alt="" /></div>
+		<div class="first2-page">
+			<div class="plain-text3" style="padding-bottom: 40px;">
+				<p>每一个进入“逆社会时钟”小组的组员，应该都希望能够像自己所听说的逆时钟例子那般成功“逆”流而上；但就像小组组长在申请页面所说的，“每一个这样的人可能需要经历与周边的人，甚至身边的大势所格格不入的<span
+						class="big-text">孤独感和焦虑感</span>”，所以这个小组“不会拒绝<span class="big-text">还在犹豫不决，渴望大家的建议</span>的小伙伴”。
+				</p>
+				<p>遍览2295条帖子，我们也发现：纯粹的分享逆时钟经历的帖子其实不到半数。帖子的内容可基本分为经历、提问、闲聊、目标、鼓励和焦虑，当然还有一定数量的无关帖。走在人生的岔路口上，每个人都是<span
+						class="big-text">&nbsp;“第一次”做人</span>。</p>
+			</div>
+			<!-- 逆社会时钟的人们都在谈论什么 图表 -->
+			<div class="flourish-embed flourish-chart" data-src="visualisation/13936522"
+				style="width: 30%;margin-left: 35%;"></div>
+			<div class="plain-text3" style="padding-bottom: 40px;">
+				<p>有最多的帖子分享经历，占据了总体的<span class="big-text">&nbsp;31.5%</span>，述说自己或他人的“逆”经历。</p>
+				<p>有<span class="big-text">14.4%</span>的帖子向大家<span class="big-text">提问</span>，可能是不能确定逆时钟的方向，可能是寻求建议；</p>
+				<p>有<span class="big-text">&nbsp;9.7%</span>的帖子在<span
+						class="big-text">闲聊</span>&nbsp;，生活中的小确幸？关于逆时钟的随感？对“老古董”的吐槽？这些都有。</p>
+			</div>
+			<div style="height: 40px;"></div>
+			<div style="color: rgb(169, 144, 126);text-align: center;padding-bottom: 72px;margin-top: -60px;">
+				鼠标置于卡片上方，查看更多内容</div>
+			<div class="cards">
+				<div class="card">
+					<div class="imgBox"><img src="image/照片墙/提问.png" alt="" /></div>
+					<div class="content">
+						<div class="details">
+							<h2>投票教我选学校<br />
+								<p>提问</p>
+							</h2>
+							<div class="data">
+								<div>
+									情况是这样的，楼主今年31，<br>
+									因对学历有心结申了22 fall留学。<br>
+									现在在两个offer纠结<br>
+									希望各位善良的uu能给我一些建议<br>
+									1. 英国某QS90-100大学……<br>
+									2. 西交利物浦……<br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="imgBox"><img src="image/照片墙/经历1.png" alt="" /></div>
+					<div class="content">
+						<div class="details">
+							<h2>60岁学电子琴<br />
+								<p>经历</p>
+							</h2>
+							<div class="data">
+								<div>
+									爸快60了，开始学弹起了电子琴。<br>
+									把我小时候的电子琴翻了出来，<br>
+									还常跟着直播课学到一点钟……<br>
+									他说网上三千多块钱包教包会，<br>
+									我都在鼓励他，买吧买吧，<br>
+									但他又有点舍不得。<br>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="imgBox">
+						<img src="image/照片墙/闲聊.png" alt="" />
+					</div>
+					<div class="content">
+						<div class="details">
+							<h2>小组被《人物》报道<br />
+								<p>闲聊</p>
+							</h2>
+							<div class="data">
+								<div>咱们被《人物》报道啦！<br>
+									朋友们！俺不知道这个<br>
+									应该发在哪个分区，<br>
+									麻烦各位uu提醒俺改正！！！ <br>
+									文章直达链接：<a href="https://mp.weixin.qq.com/s/Fg_jdBLxxOcaexebf6vR4w"
+										style="color: blue;">《当「社会时钟」在我身上瓦解》</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="plain-text3" style="padding-bottom: 40px;">
+				<p>有<span class="big-text">&nbsp;8.4%</span>的帖子是<span class="big-text">目标</span>&nbsp;——还没“逆”，但我将要“逆”！
+				</p>
+				<p>有<span class="big-text">8.3%</span>的帖子是<span class="big-text">鼓励</span>，一本励志的书，或是温馨的话语；</p>
+				<p>也有<span class="big-text">8%</span>&nbsp;的帖子是<span
+						class="big-text">焦虑</span>&nbsp;，我们渴望改变，但也可能不由自主地“逃避自由”……</p>
+				<p>当然，还有一定数量的无关帖与已经删除的帖子。</p>
+			</div>
+			<div style="color: rgb(169, 144, 126);text-align: center;padding-bottom: 44px;">鼠标置于卡片上方，查看更多内容</div>
+			<div class="cards" style="margin-top: 30px;">
+				<div class="card">
+					<div class="imgBox">
+						<img src="image/照片墙/鼓励.png" alt="" />
+					</div>
+					<div class="content">
+						<div class="details">
+							<h2>推荐一些“逆社会时钟”的书<br />
+								<p>鼓励</p>
+							</h2>
+							<div class="data">
+								<div>
+									1、毛姆的《刀锋》<br>
+									还有《月亮与六便士》。<br>
+									这两本名著毋庸赘言，<br>
+									毛姆的书不会强加价值观给读者，<br>
+									他想表达的应该是：<br>
+									用力地活出自己就是可爱的……<br>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="imgBox"><img src="image/照片墙/目标.png" alt="" /></div>
+					<div class="content">
+						<div class="details">
+							<h2>想转行做心理咨询师<br />
+								<p>目标</p>
+							</h2>
+							<div class="data">
+								<div>30岁，我做了这个决定<br>
+									（更新了小姨最新鸡血言论！）<br>
+									毕业7年一直从事广告品牌工作<br>
+									想未来这辈子能做一个心理咨询师<br>
+									今年打算：考心理学的研究生<br>
+									或参加机构学习心理学……<br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="imgBox"><img src="image/照片墙/焦虑.png" alt="" /></div>
+					<div class="content">
+						<div class="details">
+							<h2>27岁，啥都耽误不起？ <br />
+								<p>焦虑</p>
+							</h2>
+							<div class="data">
+								<div>不想卷了，</div>
+								<div>也有人逼你卷。</div>
+								<div>哪里逃的脱呢?</div>
+								<div>所以27岁怎么了吗?</div>
+								<div>没有一份父母眼中体面的工作，</div>
+								<div>不知道今晚能不能够睡得着……</div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 20px;">
+				<p>就像这样，小组成员的心态各异、阶段不同；但他们的共同之处在于都<span
+						class="big-text">不满于现状，或曾经不满于现状</span>——并因此或多或少地走上、或渴望走上逆社会时钟的道路。</p>
+				<p>我们统计了小组中的帖子所提到的<span class="big-text">逆社会时钟的“原因”</span>&nbsp;。可以发现，最多的帖主还是希望通过各种渠道<span
+						class="big-text">提升学历</span>&nbsp;，比如考研、留学甚至专升本等等。以及有许多学生<span
+						class="big-text">并不喜欢自己所读的专业</span>&nbsp;，并且这种不满并没有随着离开学校而改变，工作后他们仍然会找机会转行，即使这与“求稳”的社会时钟相悖。
+				</p>
+			</div>
+			<!-- 词云图 -->
+			<div style="display: flex;text-align: center;width: 90%;padding-left: 20%;margin-top: 30px;margin-bottom: 30px;">
+				<img src="image/reasons-cloud.gif" alt="" style="width: 40%;">
+				<img src="image/titles-cloud.gif" alt="" style="width: 40%;margin-left: 5%;">
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top:10px;">
+				<p>此外，“理想”“寻找人生价值”“追求爱好”等也跃然纸上，看上去多少有点抽象，但当它真正落地，只觉得“叹为观止”。</p>
+				<p>网友<span
+						class="big-text">@小崔</span>一家人，孩子在国外上高中，爸爸辞了互联网工作来陪读，妈妈在创业。爸爸的打算是，孩子上了大学就去支教——而孩子也准备申上大学后就休学一年去支教。爸爸的长文令人感动：
+					<span
+						class="big-text">“于是想了三天三夜，做了三年后去支教的决定。去到那些贫困的地方，去尽我所能，去培养更多的孩子……只不过没想到的是，这个决定我自己都没感动自己，却被闺女感动了。”</span>
+				</p>
+				<p>不过，令人惊讶的是，我们也发现许多<span
+						class="big-text">“被动”逆时钟</span>的帖子存在。最多的就是由于抑郁、焦虑等不佳的心理状况不得不退学、离职休养等，从顺社会时钟的角度上来看，无异于一种倒退，而这并不一定是当事人所希望的。有的时候，按部就班或许也是一种奢望，“选择权”本身就是一种可贵且稀缺的存在。
+				</p>
+				<p>所以也不难理解，为什么会有147篇帖子的主题都是在述说“焦虑”。在计划或实行逆社会时钟的过程中，并不总是顺利。</p>
+				<p>我们统计了发帖者们的压力来源，发现除去未标明压力来源的帖子，&nbsp;<span
+						class="big-text">只有2.7%的帖子觉得“无压力”</span>&nbsp;，而绝大多数帖子都提到了逆社会时钟所遇到的压力，并且还有许多帖子同时涉及多种压力来源。</p>
+			</div>
+			<!-- 逆社会时钟着压力来源 图表 -->
+			<div class="flourish-embed flourish-chart" data-src="visualisation/13947551"
+				style="width: 60%;margin-left: 20%;"></div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>其中，有多达<span class="big-text">97.5%</span>&nbsp;的帖子表示，自己受到了来自<span
+						class="big-text">外部的压力</span>&nbsp;；最主要的就是<span
+						class="big-text">来自家人的压力</span>&nbsp;，最亲的人不代表就是最理解我们的人，但来自亲近之人的否定总是会成为伤人最深的利器。</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo3.png"></div>
+						<div class="description">
+							<h3>@bornfree</h3>
+							<p>……因为加班太久压力太大和一次意外的濒死经历让我意识到不想把生命浪费的无意义的事情上，最终辞职，寻找自己感兴趣的事业……
+								（父亲）知道后说我太让他耻辱，是一把年纪没有工作的废物，在亲人同事面前不敢提我，抬不起头来。 我老公会因此抛弃我。
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 0;">
+				<p>除此之外，还有<span class="big-text">经济负担</span>和<span
+						class="big-text">社会压力</span>&nbsp;。前者主要是指如出国深造、重新上学等需要负担学费、生活费；后者则更加复杂：有的人因偏离社会大流而遭人闲话，有的人深受“peer
+					pressure（同侪压力）”的困扰，有的人则是因为用人市场的偏见而“已婚未育面试被拒”。</p>
+				<p><span
+						class="big-text">“未育女性就不能好好工作了吗？”</span>一位已婚的女网友在找工作的过程中，直到面试之前都十分顺利，HR似乎也对她十分满意。但当听说这位女士已婚未育后，HR回复了一个<span
+						class="big-text">“惊讶”</span>的表情，告诉她这种情况就不考虑了，令人寒心。</p>
+				<p>也有<span
+						class="big-text">22.2%</span>的帖子提到了内部的压力，也就是逆时钟者自己感到焦虑迷茫而无所适从、在“逆”的过程中内心没有那么坚定，或是身体、心理出现了状况，需要努力克服。
+				</p>
+			</div>
+
+			<div style="color: rgb(169, 144, 126);text-align: center;padding-bottom: 15px;">对话根据豆瓣用户@Y22、@如何坦之发帖内容改写</div>
+			<!-- 对话框 -->
+			<div class="chat">
+				<p class="send">终于重新开始读书了！但却在37岁这年被MIT的phd拒了</p>
+				<p class="send">最近有点被打击到了，都集中不了注意力做正事，身体也出了点状况</p>
+				<p class="send">有时候不免怀疑自己，这么长时间到底做了什么有意义的事情呢？</p>
+				<p class="receive">哎呀朋友，可别这么想，能申MIT的phd，你已经很厉害了！</p>
+				<p class="send">哈哈，谢谢</p>
+				<p class="receive">虽然你的做法可能在功利的角度上看“不值”，但你的初心不就是提升自己吗？你已经在这么做啦！</p>
+				<p class="send">哎，你说得也对！很多事情还是得自己想通！</p>
+				<p class="receive">嗯！加油，继续前进！</p>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 0;">
+				<p>他们就是在这样的复杂心境中，跌跌撞撞地“以退为进”着。那么这些逆时钟的人，到底都是些什么人、在具体经历些什么呢？</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 反方向的钟 anchor3 -->
+	<div class="anchor3" id="anchor3">
+		<div class="navblock" style="height: 100px;margin-top: -2%;"></div>
+		<div class="db" style="padding-top: 30px;padding-bottom: 30px;"><img src="image/反方向的钟.png" /></div>
+		<div class="first2-page">
+			<div class="plain-text3" style="padding-bottom: 40px;">
+				<p><span class="big-text">“穿梭时间的画面的钟，从反方向开始移动……”</span>这首脍炙人口的《反方向的钟》是周杰伦演唱、2000年发行的歌曲。在这首歌的MV中，不断出现动作“倒放”的视频片段，这在现实世界中自然是无法发生的；但小组中的逆社会时钟者却仍然有机会通过努力，转过身，推动“时钟”朝着他们希望的方向缓缓转动。</p>
+				<p><span class="big-text">20-29岁</span>是大多数人明确人生方向的时期，也是个体在社会中开始积极发挥能动性的时期，小组中逆时钟故事的主角也多处于这个阶段，占比为<span
+						class="big-text">60.5%</span>&nbsp;。当然，处于此年龄段的年轻人肯定也相对更适应通过互联网分享自己的经历、寻求认同与建议，但这也与他们<span
+						class="big-text">相较年龄更大的群体更没有负担而敢想敢做、相较年龄更小的青少年又更具有改变的能力</span>&nbsp;并不冲突。
+				</p>
+				<p><span class="big-text">30-39岁</span>面临着职业发展、婚姻、生育中的种种挑战，同样会有许多关于“逆”的思考，也有逆社会时钟的能力与愿望，占全体逆时钟者的<span
+						class="big-text">28.3%</span>&nbsp;。</p>
+				<p>
+					二者相加占有效数据的近<span class="big-text">90%</span>&nbsp;。可以说，<span
+						class="big-text">20-39岁的青壮年是逆社会时钟的主力军</span>&nbsp;。</p>
+			</div>
+			<!-- 20-39岁为逆社会时钟高发年龄段 图表 -->
+			<div class="flourish-embed" data-src="visualisation/13859237"
+				style="width: 50%;margin-left: 25%;margin-top: 0;"></div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>逆社会时钟群体中，年龄最大的<span class="big-text">88岁</span>，年龄最小的才<span class="big-text">12岁</span>，令人不免疑惑这些<span
+						class="big-text">10-19岁</span>的逆时钟者又是什么情况？——他们的人生时钟似乎才刚刚开始呢。</p>
+				<p>事实上，他们中大多是因病休学、退学的高中生或大学生。</p>
+				<p>有网友<span
+						class="big-text">“14岁时抑郁，现在转成双相，也就是燥郁……休过三次学，即使很想上学、换了学校，还是没能克服心理阴影，发病发得很厉害”</span>，于是便辍学了。但她却仍旧鼓励大家不要轻易产生放弃的念头，因为一切都是经历；还呼吁大家对精神疾病患者们少一些偏见。
+				</p>
+				<p>此外，也有一些主动进行多次高考的复读生、退学重新高考的大学生。</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo3.png"></div>
+						<div class="description">
+							<h3>@我也来高兴高兴</h3>
+							<p>大家好，看了组内很多人的帖子，也想给大家分享一些动力。楼主在外念书，认识了一个朋友。高考国内985录取后，读过大一选择退学。自己找了语言班到德国读语言。经历一年后，考取了德国的本科。
+								已是几年前的事了。很佩服的经历。勇气与坚持缺一不可。
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 0;">
+				<p>以及虽然组内年龄40岁及以上的群体逆时钟的故事较少，但既然“逆社会时钟”的群体本就属于社会中的少数人，那么这些“少数人中的少数人”，他们的勇敢或许能够带给我们更大的启发。</p>
+				<p>网友<span
+						class="big-text">@Gymnopedie</span>分享了妈妈55岁学习CMA（美国注册管理会计师）课程的经历。这位勇敢的母亲原先为了家庭放弃了会计工作，直到女儿高一住校才拾起阔别了二十年的会计工作。对于新的系统、新的法律，她都不熟悉，原先的会计证也失效了，但她坚持学习和找工作，最终在女儿高考的那年也考过了初级会计师；而21年，她又报了CMA的课程。<span
+						class="big-text">“到现在她的月薪已经有一万五啦，并且鼓励了周围一圈同年龄段的朋友和她一起学习。她还跟我说，她不是他们培训班上年龄最大的，还有一位六十多的老太太也在努力学习。”</span>这样的故事还在世界各处持续发生。
+				</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo1.png"></div>
+						<div class="description">
+							<h3>@Ingrid</h3>
+							<p>突然想到一位我认识的韩国奶奶的故事。<br>
+								这位奶奶三十多岁的时候移民到了美国，因为在韩国就是医生到美国依然从医。不过她一直都是西医，直到退休了才开始研究中医。<br>
+								……从研究生到博士，等于从头上了一次大学。在七十岁左右终于博士毕业可以开始中医治疗。之后她考了美国的中医资格证，再一次投身到医疗行业中。至今八十岁的她依然在中医馆工作，为自己的晚年生活增添趣味。
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 0;">
+				<p>和逆社会时钟者的年龄相对应的是他们的<span class="big-text">身份职业</span>&nbsp;。我们将<span
+						class="big-text">518个</span>身份数据分成<span
+						class="big-text">学生、工作者、无正式工作三类</span>&nbsp;，其中学生群体约占总体的<span
+						class="big-text">29.9%</span>&nbsp;，根据学历分为本科生、硕士生等；工作者占总体的<span
+						class="big-text">62.7%</span>&nbsp;，包括各行各业、数量庞大的“打工人”；无正式工作的群体占<span
+						class="big-text">7.3%</span>&nbsp;，则包括自由职业者、因病待业在家的人群等。</p>
+			</div>
+			<!-- 逆社会时钟者的身份职业 图表 -->
+			<div class="flourish-embed flourish-parliament" data-src="visualisation/13909289"
+				style="width: 40%;margin-left: 30%;margin-top: 0;"></div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>可以看出，逆时钟群体中的工作者占比最高。而经过统计，其中<span class="big-text">公务员、事业单位员工、国企员工</span>&nbsp;竟占了工作者群体的<span
+						class="big-text">21.5%</span>&nbsp;——似乎有不少拥有“神仙工作”的人选择了放弃这份安稳。</p>
+			</div>
+			<!-- 自愿逃离稳定生活 图表 -->
+			<div class="flourish-embed flourish-hierarchy" data-src="visualisation/13908687"
+				style="width: 30%;margin-left: 35%;margin-top: 0;"></div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>事实上，经常随着逆时钟的话题一起被提出的就是关于“沉没成本”的问题。逆时钟之所以脱离“主流”，不只是因为年龄上的与众不同，其实更多的是来自世俗意义上的“成功”的审视——大多数人会认为<span
+						class="big-text">“稳定”“高薪”</span>才是正确的，但它并不是这些 “逆时钟”组员们的心之所向。</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo2.png"></div>
+						<div class="description">
+							<h3>@巨爱吃锅包肉</h3>
+							<p>……上周五我向主任递交了辞职信，主任今天交给人事被拒收了，我又自己去跟人事硬刚了一波，人事科科长让我把辞职信放桌上了。我刚刚还在跟姐妹们调侃，
+								编制诚可贵，京户价更高，若为自由故，两者皆可抛。
+								28岁，裸辞，放弃了北京的编制和户口……但是，我终于不再被社会这些的条条框框所限制，开始了自己想要人生。
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 0;">
+				<p>此外，在学生群体中，本科生的逆社会时钟者占比最大，达到了学生群体的<span class="big-text">67.7%</span>&nbsp;。本科时间较长，人生道路又未定型，<span
+						class="big-text">“读过三所大学的26岁抑郁症大一女子”“大一从协北复交某所退学复读”“延毕一年感觉自己赚到了”</span>……单从这些言简意赅、极富冲击力的帖子标题，就能窥见大家带有传奇色彩的生活。
+				</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo3.png"></div>
+						<div class="description">
+							<h3>@A lost child</h3>
+							<p>原先的专业读到大三是要出国交换的，结果因为疫情取消了。于是在大二结束后转了专业，为了修够学分只能多读一年大学。
+								我最大的优点就是心态好到爆炸，从未觉得延毕是件坏事。……希望一样延毕的伙伴们加油呀！少点焦虑多点开心好好享受大学生活！
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>逆时钟所象征的自由自在、特立独行似乎令人神往，然而当抽象的时钟实体化，“复读”“留学”“考研读研”……似乎还是未脱离世俗。下图为我们所整理的<span
+						class="big-text">不同年龄段的人们</span>实施<span
+						class="big-text">具体逆社会时钟类型</span>的桑基图，不同的分支象征着原本境遇相似的他们，选择走向了不同的道路。</p>
+			</div>
+			<!-- 逆社会时钟的他们 图表 -->
+			<div class="flourish-embed flourish-sankey" data-src="visualisation/13980068"
+				style="width: 60%;margin-left: 20%;margin-top: 0;"></div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>拥有“最多人”的分支是在20-29岁的人群中，有<span class="big-text">111人</span>选择了<span
+						class="big-text">逆时钟考研读研</span>。考上研究生，既能够提高学识，更能够提升学历。考研的性质决定了它可以脱产准备也可以在职准备，并且也解释了“三战”“四战”的存在。
+				</p>
+				<p>也有<span class="big-text">65人</span>在这样的年纪<span
+						class="big-text">重新入学高中</span>。如果说报考研究生还是出于个人发展的考虑，那么大龄重读本科、重读高中，则多少带有了弥补遗憾的色彩。</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo3.png"></div>
+						<div class="description">
+							<h3>@狗卷棘</h3>
+							<p>30岁在日本重读高中<br>
+								有关我的年龄是同学二倍的事完全没有暴露~<br>
+								……首先我不是为了上高中而辞职，而是早就裸辞……之前我有个项目淡季995忙季706，还总被喷。失眠，长期低烧不愈，体检低血脂尿蛋白心电图异常……<br>
+								偶然间看了部动画叫ReLife，讲的是遇到挫折的社会人，到高中回笼重造改掉自身缺点的故事……
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>而当年龄稍大，虽然也有许多上班族<span class="big-text">主动或被迫地</span>转行，不过随着年龄进入30+、经济实力持续累积，这一阶段的人们似乎更倾向于<span
+						class="big-text">申请留学</span>来“继续读书”。虽然，这也并不容易：</p>
+			</div>
+			<div class="content">
+				<ul class="team">
+					<li class="member co-funder">
+						<div class="thumb"><img src="image/momo3.png"></div>
+						<div class="description">
+							<h3>@Summervanille</h3>
+							<p>大龄到异国，不仅仅是人生地不熟，还要说一门非母语，或者是一门新的小语种，重新建立自己的交友圈，之前的工作经历大大打折，很可能从junior做起……
+								以下是我的几个建议，针对欧洲留学（尤其是德国），其他国家并无经验。
+								1. 我是36岁留学的，38岁毕业工作，……
+								<br>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="plain-text3" style="padding-bottom: 40px;padding-top: 20px;">
+				<p>这些例子可能并不完全符合大家对逆时钟者的想象，但事实上，绝大部分逆时钟人士也仍旧逃不脱生计、升学，逃不开权衡利弊的考虑，并且同样经历着<span
+						class="big-text">梦想与现实的抉择</span>。但他们的特点就是不容易因他人的眼光而动摇，始终会去考虑什么是真正适合自己的——与其要说正逆之分，不如将人生想象为旷野，那么每一个人都可以在自己舒服的时间走自己踩出的路。
+				</p>
+			</div>
+			<div style="color: rgb(169, 144, 126);text-align: center;padding-bottom: 15px;">对话根据豆瓣用户@Y22、@Summervanille内容改写</div>
+			<!-- 对话框 -->
+			<div class="chat">
+				<p class="send">姐妹，我申请到了另一所很不错的实验中心的phd！</p>
+				<p class="receive">太好啦，否极泰来！！</p>
+				<p class="receive">我记得你之前基本是在国内生活，现在要出国，一定觉得很新鲜吧！</p>
+				<p class="send">当然！但是挑战也很多，再加上家人都在国内，要兼顾好还是挺难的</p>
+				<p class="send">不过我认为逆时钟不是逃避，而是选择一条更艰难的路，我会努力平衡好，让自己不要后悔！</p>
+				<p class="send">而最棒的就是——现在的一切都是我自己主动选择的，主动争取来的！</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 结语 last-content -->
+	<div class="last-content" id="last-content">
+		<div class="navblock" style="height: 100px;margin-top: -2%;"></div>
+		<div class="db" style="padding-top: 20px;padding-bottom: 20px;"><img src="image/结语.png" alt="" /></div>
+		<!-- first6-page -->
+		<div class="first6-page">
+			<div class="words">
+				<div class="leaf1-img"><img src="image/树叶1.png" alt=""></div>
+				<div class="leaf2-img"><img src="image/树叶2.png" alt=""></div>
+				<div class="leaf3-img"><img src="image/树叶3.png" alt=""></div>
+				<div class="plain-text3" style="padding-bottom: 10px;">
+					<p>纵观上千个案例，我们也能发现：&nbsp;<span
+							class="big-text">逆时钟本身其实并没有非常严格的定义。</span>有的人认为毕业后就应该工作、结婚、生子，也有的人认为二十几岁甚至三十几岁都是可以做尝试的年纪。
+					</p>
+					<div style="height: 30px;">&nbsp;</div>
+					<p>有人主动而“逆”，有人被动而“逆”；在更多时候，“逆”并不能成为“顺”得不顺利的避风港，逆的过程中依旧会有无数焦虑、彷徨。
+					</p>
+					<div style="height: 30px;">&nbsp;</div>
+					<p>而最重要的或许仍是<span class="big-text">找到自己的目标</span>&nbsp;。有了目标，方能燃起相应的勇气与动力，无论是顺时钟还是逆时钟，都能毅然决然地走下去。
+					</p>
+
+				</div>
+				<div>
+					<div>
+						<img src="image/when.gif" alt="" style="width: 40%;margin-left: 18%;">
+						<div style="width: 40%;margin-left: 18%;">
+							<p style="font-size: 20px;">更何况有这么多人用亲身经历告诉我们：</p>
+						</div>
+					</div>
+					<div style="margin-top: -15%;">
+						<img src="image/tree.gif" alt="" style="width: 40%;margin-left: 40%;">
+						<div style="width: 40%;margin-left: 60%;">
+							<p style="font-size: 20px;">就像在组里被反复引用的这句话：</p>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<!-- second6-page -->
+		<div class="second6-page">
+			<div class="plain-text4" style="margin-left: 20%;">
+				<p>>>>&nbsp;把阻挡你前进的事物写在纸上，放进碎纸机里吧！<<< </p>
+			</div>
+			<div class="plain-text-keyword"
+					style="font-size: 15px; margin: -20px auto -16px; width: 40%; text-align: center">
+					点击纸张输入
+				</div>
+			<!-- 碎纸机 -->
+			<div id="sui-body">
+				<div class="shredder">
+					<div class="shredder__side shredder__top">
+						<div class="shredder__paper shredder__paper--input">
+							<div class="shredder__paper-inner">
+								<p class="shredder__text" contenteditable="true"></p>
+							</div>
+						</div>
+						<div class="shredder__paper shredder__paper--output">
+							<div class="shredder__paper-inner"></div>
+						</div>
+					</div>
+					<div class="shredder__side shredder__front"><button class="shredder__btn"
+							aria-label="activate shredder"></button></div>
+				</div>
+			</div>
+
+		</div>
+		<div class="quan-img"><img src="image/圈.png" alt=""></div>
+	</div>
+	<!-- 作者 -->
+	<div class="footer" style="line-height: 30px; width:100%; margin: 0 auto; text-align: center; padding-bottom: 2em;">
+		<div style="width: 70%; text-align: left; margin: 0 auto;">
+			<p>团队成员：陈尔琳 石苗 肖雨洁 张傲雪</p>
+			<p>指导老师：赵甜芳</p>
+			<p>数据来源：[1] 豆瓣小组</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]
+				知乎</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]
+				36氪×后浪研究所：《年轻人年龄焦虑报告》</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]
+				联邦调查局：德国女性生育年龄数据</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5]
+				恒大研究院：《中国生育报告2020》</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6]
+				公务员局网站：《中央机关及其直属机构2023年度考试录用公务员公告》</p>
+			<p>参考资料：[1] Neugarten B L, Moore J W, Lowe J C.(1965). Age norms, age constraints, and adult socialization.
+				American journal of Sociology. </p>
+			<div style="width: 60%; text-align: center; margin: 0 auto; margin-top: 2em; ">
+				<p style="margin: 0;">2023 © 暨南大学 新闻与传播学院</p>
+			</div>
+		</div>
+</body>
+<!-- jquery -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.waypoints.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<!-- 公用 js -->
+<script src="js/index.js"></script>
+<!-- 加载页 -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/loader.js"></script>
+<!-- 图表 -->
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<!-- 点击后出现烟花效果 -->
+<script src="js/cursor-effects.js"></script>
+<!-- 文字上滑浮现 -->
+<script src="js/josh.js"></script>
+
+<!-- 碎纸机 -->
+<script src="./js/console-ban.min.js"></script>
+<script src="js/script-sui.js"></script>
+
+<!-- 中美对比图 -->
+<script src="js/image-compare-viewer.min.js"></script>
+<script>
+	const element = document.getElementById("image-compare1");
+	const viewer = new ImageCompare(element, {
+		addCircle: true
+	}).mount();
+	const element2 = document.getElementById("image-compare2");
+	const viewer2 = new ImageCompare(element2, {
+		verticalMode: true,
+		addCircle: true
+	}).mount();
+</script>
+<!-- 上滑淡出 -->
+<script type="text/javascript">
+	$(function () {
+
+		$(document).on('scroll', function () {
+			var h = $(window).scrollTop();
+			var maxh = $(document).height();
+			var currh = $(window).height();
+			var num = Math.ceil((h - 100) / 160);
+			var str = ".peo_box" + num;
+			if (h > 100 && h < (maxh - currh - 1)) {
+				$(str).addClass('lishow');
+			} else if (h >= (maxh - currh - 1)) {
+				$('.peo_box').addClass('lishow');
+			} else {
+				$('.peo_box').removeClass('lishow');
+			}
+
+
+		});
+
+	});
+</script>
+
+
+</html>
